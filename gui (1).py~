@@ -1,0 +1,39 @@
+import subprocess
+from Tkinter import *
+import tkMessageBox
+
+
+mfont = ("Helvetica", "16", "bold")
+
+
+def run2(q, s="01"):
+    q = str(int(q) + 1)
+    process = subprocess.Popen(
+        q + ".exe", stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    output = process.communicate(s + "\n")[0]
+    tkMessageBox.showinfo("s", output[i:])
+    print output
+
+root = Tk()
+root.configure()
+Lb1 = Listbox(root, relief=FLAT)
+Lb1.insert(1, " 1.c")
+Lb1.insert(2, " 2.c")
+Lb1.insert(3, " 3.c")
+Lb1.pack(side=LEFT, padx=15, pady=15)
+
+L2 = Label(root, text="Select program to run from the list",
+           pady=25)
+L2.pack(side=TOP)
+L1 = Label(root, text="Enter Input",
+           pady=15)
+L1.pack(side=TOP)
+E1 = Entry(root)
+
+
+B = Button(root, text="Run", relief=FLAT, command=lambda: run2(
+    Lb1.curselection()[0], E1.get()))
+
+E1.pack(padx=15, pady=15)
+B.pack(padx=15, pady=15)
+root.mainloop()

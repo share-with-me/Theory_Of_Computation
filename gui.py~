@@ -1,0 +1,29 @@
+import subprocess
+from Tkinter import *
+import tkMessageBox
+
+mfont = ("sans-serif", "16", "bold")
+
+def run2(q, s="01"):
+    q = str(int(q) + 1)
+    process = subprocess.Popen("./a.out", stdin=subprocess.PIPE, stdout=subprocess.PIPE)
+    output = process.communicate(s + "\n")[0]
+    tkMessageBox.showinfo("output", output)
+    print output
+
+root = Tk()
+root.configure()
+Lb1 = Listbox(root, relief=FLAT)
+
+L1 = Label(root, text="Enter Input",pady=15)
+L1.pack(side=TOP)
+E1 = Entry(root)
+
+def prints:
+    print 'Hello'
+
+B = Button(root, text="Run", relief=FLAT, command= prints)
+
+E1.pack(padx=15, pady=15)
+B.pack(padx=15, pady=15)
+root.mainloop()
